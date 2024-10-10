@@ -3,7 +3,7 @@ Given a sorted array of distinct integers and a target value, return the index i
 
 You must write an algorithm with O(log n) runtime complexity.
 
- 
+
 
 Example 1:
 
@@ -17,7 +17,7 @@ Example 3:
 
 Input: nums = [1,3,5,6], target = 7
 Output: 4
- 
+
 
 Constraints:
 
@@ -26,3 +26,50 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
 */
+
+#include <iostream>
+
+using namespace std;
+
+class Solution
+{
+public:
+    int searchInsert(vector<int> &nums, int target)
+    {
+        int l = 0, r = nums.size() - 1;
+
+        if (nums[r] < target) return r + 1;
+        if (nums[0] > target) return 0;
+
+        while (l <= r)
+        {
+            int mid = l + (r - l) / 2;
+
+            if (nums[mid] == target)
+            {
+                return mid;
+            } else if (nums[mid] > target)
+            {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        return l;
+    }
+};
+
+int main()
+{
+    Solution solution;
+
+    vector<int> nums = {1, 3, 5, 6};
+    int target = 4;
+
+    int index = solution.searchInsert(nums, target);
+
+    cout << "Index: " << index << endl; // Output: 2
+
+    return 0;
+}
