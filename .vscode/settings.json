@@ -64,6 +64,13 @@
         "memory_resource": "cpp",
         "random": "cpp",
         "utility": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "__errc": "cpp",
+        "__mutex_base": "cpp",
+        "clocale": "cpp",
+        "cstdarg": "cpp",
+        "mutex": "cpp",
+        "optional": "cpp",
+        "sstream": "cpp"
     }
 }
